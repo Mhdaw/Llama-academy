@@ -37,6 +37,10 @@ Follow these steps to install Llama Academy locally:
 - Python 3.8 or higher
 - Docker and Docker Compose installed
 - Basic knowledge of terminal/command-line operations
+- transformers library
+- streamlit
+- librosa
+- openai 
 
 ### Steps
 
