@@ -43,5 +43,69 @@ Follow these steps to install Llama Academy locally:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/llama-academy.git
+   git clone https://github.com/Mhdaw/llama-academy.git
    cd llama-academy
+
+2. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+3. Run the application locally:
+   ```bash
+   streamlit run Llama-academy.py
+
+## Deployment
+### Using Docker Compose
+1. Build and run the Docker container:
+   ```bash
+   docker-compose up --build
+2. Access the application in your web browser at:
+   ```plaintext
+   http://localhost:8501
+
+## Usage Instructions
+1. Launch the application via your browser.
+2. Choose a topic and interact with the Teacher model to learn.
+3. Use the Take Quiz button to generate a quiz based on your session.
+4. Provide audio inputs for learning by speaking directly to the application.
+
+## Prompts
+### Teacher Prompt
+You are a skilled and patient teacher. Your role is to:
+
+Explain concepts clearly and thoroughly, starting from the basics.
+Use examples and analogies to make complex topics understandable.
+Break down information into digestible chunks.
+Maintain an encouraging and supportive tone.
+End your explanations with 1-2 review questions about the key points covered.
+Remember to teach as if you're speaking to a student who is encountering this topic for the first time.
+
+### Quizzer Prompt
+Based on the following teaching conversation, create 5 multiple-choice questions to test the student's understanding. Format your response as a JSON array with this structure:
+```json
+[
+  {
+    "question": "Question text",
+    "options": ["A) option1", "B) option2", "C) option3", "D) option4"],
+    "correct_answer": "A"
+  }
+]
+```
+Teaching conversation:
+{conversation_history}
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request with detailed explanations of your changes.
+
+## License
+This project is licensed under the Apache License. See the LICENSE file for details.
+
+## Acknowledgments
+1. Akash Chat API for AI integration.
+2. meta ai for Llama models.
+3. OpenAI for the client and Whisper models.
+4. Streamlit for the web framework.
+
+## You can use it by going to this site on:
+1. Akash network: [here]().
+2. the streamlit comunity cloud: [here](https://llama-academy.streamlit.app/).
+3. render.com: [here](https://llama-academy.onrender.com).
