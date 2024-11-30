@@ -1,0 +1,47 @@
+---
+version: "2.0"
+services:
+  lurkerllama:
+    image: mhdaw/llamaacademy:latest
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+    env:
+
+    params:
+      storage:
+        data:
+          mount: /data/archives
+          readOnly: false
+
+profiles:
+  compute:
+    llamaacademy:
+      resources:
+        cpu:
+          units: 2
+        memory:
+          size: 1gb
+        storage:
+          - size: 15gb
+          - name: data
+            size: 10gb
+            attributes:
+              persistent: true
+              class: beta3
+  placement:
+    dcloud:
+      pricing:
+        llamaacademy:
+          denom: uakt
+          amount: 10000
+        qdrant:
+          denom: uakt
+          amount: 10000
+deployment:
+  llamaacademy:
+    dcloud:
+      profile: llamaacademy
+      count: 1
